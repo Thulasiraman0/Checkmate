@@ -533,6 +533,120 @@
         .s-2 { color: var(--status-fail); background: rgba(239, 68, 68, 0.1); }
         .s-3 { color: var(--status-mod); background: rgba(234, 179, 8, 0.1); }
 
+        /* Progress Row Styles */
+        tr.progress-row {
+            background-color: rgba(29, 78, 216, 0.08);
+            height: 110px;
+        }
+
+        .progress-label-cell {
+            background-color: rgba(29, 78, 216, 0.12);
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+            padding: 15px !important;
+            vertical-align: top;
+        }
+
+        .progress-graph-container {
+            background: linear-gradient(
+                to bottom,
+                rgba(29, 78, 216, 0.05) 0%,
+                rgba(29, 78, 216, 0.02) 100%
+            );
+            padding: 5px 10px 0px 10px;
+            position: relative;
+        }
+
+        .progress-line-graph {
+            width: 100%;
+            height: 80px;
+            display: block;
+        }
+
+        .grid-line {
+            stroke: rgba(148, 163, 184, 0.2);
+            stroke-width: 1;
+            stroke-dasharray: 2, 2;
+        }
+
+        .graph-area {
+            opacity: 0.8;
+        }
+
+        .graph-line {
+            fill: none;
+            stroke: #3b82f6;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.4));
+        }
+
+        .graph-point {
+            fill: #3b82f6;
+            stroke: #fff;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .graph-point:hover {
+            r: 5;
+            fill: #2563eb;
+            filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.8));
+        }
+
+        .progress-values {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            right: 10px;
+            height: 20px;
+            display: grid;
+            grid-template-columns: repeat(31, 1fr);
+            gap: 0;
+            width: calc(100% - 20px);
+        }
+
+        .progress-value {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #3b82f6;
+            text-align: center;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-overflow: clip;
+        }
+
+        /* Progress Percentage Row */
+        .progress-percentage-row {
+            background-color: rgba(29, 78, 216, 0.05);
+            height: 30px;
+        }
+
+        .progress-percentage-cell {
+            background-color: rgba(29, 78, 216, 0.03) !important;
+            padding: 0 !important;
+        }
+
+        .percentage-value {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
 
         /* =========================================
            4. FOOTER LEGEND
@@ -577,6 +691,82 @@
             color: var(--accent-blue);
             font-weight: 600;
             margin-top: 10px;
+        }
+
+        /* =========================================
+           4.5 DAILY PROGRESS SECTION
+           ========================================= */
+        .progress-summary {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #1e1e24;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .progress-summary h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 10px;
+        }
+
+        .progress-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .progress-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .progress-chart {
+            width: 100%;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 2px;
+        }
+
+        .progress-bar-fill {
+            width: 80%;
+            background: linear-gradient(180deg, var(--accent-blue), var(--accent-blue-hover));
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: var(--text-main);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding-bottom: 2px;
+        }
+
+        .progress-percentage {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-align: center;
         }
 
         /* =========================================
@@ -806,9 +996,9 @@
                     <option>January</option><option>February</option><option>March</option>
                     <option>April</option><option>May</option><option>June</option>
                     <option>July</option><option>August</option><option>September</option>
-                    <option>October</option><option>November</option><option selected>December</option>
+                    <option>October</option><option>November</option><option selected>January</option>
                 </select>
-                <input type="number" id="yearSelect" class="custom-select" value="2027" min="2020" max="2100" step="1" onchange="saveMeta()" style="width: 80px;">
+                <input type="number" id="yearSelect" class="custom-select" value="2026" min="2025" max="2100" step="1" onchange="saveMeta()" style="width: 80px;">
             </div>
 
             <div class="btn-group">
@@ -857,9 +1047,9 @@
         </div>
 
         <div class="page-footer">
-            <p class="developer">Designed & Developed by Thulasiraman</p>
-            <p>&copy; 2025 All Rights Reserved</p>
-            <p class="best-wishes"><i>The process of building habits is actually the process of becoming yourself</i></p>
+            <p class="developer">Architected by Thulasiraman & Vigneshwar | Generated by AI</p>
+            <p>&copy; 2025 • Free to use & modify</p>
+            <p class="best-wishes"><i>"Small habits, clear systems, big results."</i></p>
         </div>
 
     </div>
@@ -947,6 +1137,122 @@
 
             // Body
             tableBody.innerHTML = '';
+
+            // Add Progress Graph Row
+            const progressGraphRow = document.createElement('tr');
+            progressGraphRow.className = 'progress-row';
+            const progressGraphLabel = document.createElement('td');
+            progressGraphLabel.className = 'habit-name progress-label-cell';
+            progressGraphLabel.textContent = 'Daily Progress';
+            progressGraphRow.appendChild(progressGraphLabel);
+
+            // Calculate all percentages for the graph
+            const percentages = [];
+            for(let dayIdx = 0; dayIdx < DAYS_COUNT; dayIdx++) {
+                let completed = 0;
+                let total = 0;
+
+                habits.forEach((habit) => {
+                    if(habit.name.trim() !== '') {
+                        total++;
+                        if(habit.days[dayIdx] === 1) {
+                            completed++;
+                        }
+                    }
+                });
+
+                if(total === 0) total = 1;
+                const percentage = Math.round((completed / total) * 100);
+                percentages.push(percentage);
+            }
+
+            // Create graph cell spanning all days
+            const graphCell = document.createElement('td');
+            graphCell.className = 'progress-graph-container';
+            graphCell.setAttribute('colspan', DAYS_COUNT);
+
+            // Build SVG line graph
+            const svgWidth = DAYS_COUNT * 100;
+            const svgHeight = 100;
+            const padding = 10;
+            const graphWidth = svgWidth - (padding * 2);
+            const graphHeight = svgHeight - (padding * 2);
+            const stepX = graphWidth / (DAYS_COUNT - 1);
+
+            // Create path for line
+            let pathData = '';
+            let areaPath = '';
+            percentages.forEach((percentage, idx) => {
+                const x = padding + (idx * stepX);
+                const y = padding + graphHeight - (percentage / 100 * graphHeight);
+                
+                if(idx === 0) {
+                    pathData = `M ${x} ${y}`;
+                    areaPath = `M ${x} ${svgHeight - padding}`;
+                } else {
+                    pathData += ` L ${x} ${y}`;
+                }
+                areaPath += ` L ${x} ${y}`;
+            });
+            areaPath += ` L ${padding + graphWidth} ${svgHeight - padding} Z`;
+
+            // Create points HTML
+            let pointsHTML = '';
+            percentages.forEach((percentage, idx) => {
+                const x = padding + (idx * stepX);
+                const y = padding + graphHeight - (percentage / 100 * graphHeight);
+                pointsHTML += `<circle cx="${x}" cy="${y}" r="3" class="graph-point" />`;
+            });
+
+            graphCell.innerHTML = `
+                <svg class="progress-line-graph" viewBox="0 0 ${svgWidth} ${svgHeight}" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.05" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Grid lines -->
+                    <g class="grid-lines">
+                        ${Array.from({length: 5}).map((_, i) => {
+                            const y = padding + (i * graphHeight / 4);
+                            return `<line x1="${padding}" y1="${y}" x2="${svgWidth - padding}" y2="${y}" class="grid-line" />`;
+                        }).join('')}
+                    </g>
+                    
+                    <!-- Area fill -->
+                    <path d="${areaPath}" fill="url(#areaGradient)" class="graph-area" />
+                    
+                    <!-- Line -->
+                    <path d="${pathData}" class="graph-line" />
+                    
+                    <!-- Points -->
+                    ${pointsHTML}
+                </svg>
+            `;
+
+            progressGraphRow.appendChild(graphCell);
+            tableBody.appendChild(progressGraphRow);
+
+            // Add Progress Percentage Row
+            const progressPercentageRow = document.createElement('tr');
+            progressPercentageRow.className = 'progress-percentage-row';
+            const percentageLabel = document.createElement('td');
+            percentageLabel.className = 'habit-name progress-label-cell';
+            percentageLabel.style.visibility = 'hidden';
+            progressPercentageRow.appendChild(percentageLabel);
+
+            percentages.forEach((percentage) => {
+                const percentCell = document.createElement('td');
+                percentCell.className = 'day-cell progress-percentage-cell';
+                percentCell.innerHTML = `<div class="percentage-value">${percentage}%</div>`;
+                progressPercentageRow.appendChild(percentCell);
+            });
+
+            tableBody.appendChild(progressPercentageRow);
+
+            // Add Habits
             habits.forEach((habit, rIdx) => {
                 const tr = document.createElement('tr');
 
@@ -1057,6 +1363,8 @@
             const settings = JSON.parse(storage.getItem('notification_settings')) || {};
             settings.time = time;
             storage.setItem('notification_settings', JSON.stringify(settings));
+            // Clear today's notification flag so user can test with new time
+            storage.removeItem('last_notification_date');
         } catch(e) {
             console.warn('Failed to update notification time:', e);
         }
@@ -1079,6 +1387,12 @@
         }
     }
 
+    // Get today's date string for tracking daily notifications
+    function getTodayDateString() {
+        const now = new Date();
+        return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    }
+
     function checkAndNotify() {
         try {
             const settings = JSON.parse(storage.getItem('notification_settings')) || {};
@@ -1087,14 +1401,20 @@
             const now = new Date();
             const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
             const notifyTime = settings.time || '19:00';
+            const todayDate = getTodayDateString();
+            
+            // Get the last notification date from storage (persists across page refreshes)
+            const lastNotifiedDate = storage.getItem('last_notification_date');
         
-            // Check if current time matches notification time
-            if(currentTime === notifyTime) {
+            // Check if current time matches AND we haven't notified today
+            if(currentTime === notifyTime && lastNotifiedDate !== todayDate) {
                 if('Notification' in window && Notification.permission === 'granted') {
                     new Notification('Checkmate Daily Reminder! 🎯', {
                         body: 'Time to complete your daily habits! Keep your streaks alive!',
                         icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="75" font-size="75" fill="%231d4ed8">♚</text></svg>'
                     });
+                    // Save today's date to prevent duplicate notifications
+                    storage.setItem('last_notification_date', todayDate);
                 }
             }
         } catch(e) {
@@ -1109,8 +1429,11 @@
             document.getElementById('notifyToggle').checked = settings.enabled;
             document.getElementById('notifyTime').value = settings.time || '19:00';
             
-            // Check for notifications every minute
-            setInterval(checkAndNotify, 60000);
+            // Check for notifications every 30 seconds (reduced frequency for better performance)
+            setInterval(checkAndNotify, 30000);
+            
+            // Initial check after a small delay to avoid race conditions
+            setTimeout(checkAndNotify, 1000);
         } catch(e) {
             console.warn('Failed to initialize notifications:', e);
         }
