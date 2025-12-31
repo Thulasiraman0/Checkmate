@@ -1071,7 +1071,8 @@
     function testNotification() {
         if('Notification' in window && Notification.permission === 'granted') {
             new Notification('Checkmate Reminder! 🎯', {
-                body: 'Time to complete your daily habits! Keep your streaks alive!'
+                body: 'Time to complete your daily habits! Keep your streaks alive!',
+                icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="75" font-size="75" fill="%231d4ed8">♚</text></svg>'
             });
         } else if('Notification' in window) {
             alert('Please enable notifications in your browser settings first.\n(Settings -> Privacy and security -> Site Settings -> Notifications)');
