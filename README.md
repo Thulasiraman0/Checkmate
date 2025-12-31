@@ -2,7 +2,7 @@
 
 **Keep your streaks alive!**
 
-A modern, interactive habit tracking application designed to help you build and maintain positive daily habits. Track up to 31 days of habits with visual feedback, daily reminders, and a sleek dark-themed interface.
+A modern, interactive habit tracking application designed to help you build and maintain positive daily habits. Track up to 31 days of habits with daily reminders, and a sleek dark-themed interface.
 
 ## 🎯 Features
 
